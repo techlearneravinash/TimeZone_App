@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(./clock-time-zone.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 100vh;
+        }
+        .container{
+            display: flex;
+            margin: 10px;
+            padding: 10px;
+        }
+        #timezone{
+            border: 12px solid solid black;
+            width: 180px;
+            height: 180px;
+            display: inline-block;
+            margin: 50px;
+            text-align: center;
+            padding: 30px;
+            border-image: linear-gradient(red, yellow) 30/25px;
+        }
+        #time{
+            text-align: center;
+        }
+        h1, #india,#paris,#newYork,#london{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="time">TimeZone</h1>
+    <div class="container">
+    <div id="timezone">
+        <h1>India</h1>
+        <p id="india"></p>
+    </div>
+    <div id="timezone">
+        <h1>Paris</h1>
+        <p id="paris"></p>
+    </div>
+    <div id="timezone">
+        <h1>newYork</h1>
+        <p id="newYork"></p>
+    </div>
+    <div id="timezone">
+        <h1>London</h1>
+        <p id="london"></p>
+    </div>
+</div>
+    <script>
+        var indian=function(){
+            document.getElementById("india").innerHTML=new Date().toLocaleString('en-US',{timeZone:'Asia/Kolkata', timeStyle:'long'})
+        }
+        indian();
+        setInterval(indian,1000);
+
+        var paris=function(){
+            document.getElementById("paris").innerHTML=new Date().toLocaleString('en-US',{timeZone:'Europe/Paris', timeStyle:'short', hourCycle:'h24'})
+        }
+        paris();
+        setInterval(paris,1000);
+
+        var newYork=function(){
+            document.getElementById("newYork").innerHTML=new Date().toLocaleString('en-US',{timeZone:'America/New_York', timeStyle:'medium'})
+        }
+        newYork();
+        setInterval(newYork,1000);
+
+        var london=function(){
+            document.getElementById("london").innerHTML=new Date().toLocaleString('en-US',{timeZone:'Europe/London'})
+        }
+        london();
+        setInterval(london,1000);
+    </script>
+</body>
+</html>
